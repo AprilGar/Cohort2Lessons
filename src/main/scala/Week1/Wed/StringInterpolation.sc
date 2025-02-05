@@ -42,5 +42,22 @@ println(raw"I'm going onto a \nnew line")
 
 // Common use --> Regex
 
+//TASK
+//Create 2 strings for two peoples names. Then using those names use string interpolation to print “A is older than B”
+val personA:String = "Arnold"
+val personB:String = "Bart"
+println(s"$personA is older than $personB")
 
+//Create 2 integers for the age of each person. Then use string interpolation to calculate how much older the first person is and print “A is X years older than B”
+val wholeAgeA: Int = 35
+val wholeAgeB: Int = 29
+println(s"$personA is ${wholeAgeA - wholeAgeB} years older than $personB")
+
+//Change your 2 integers to doubles and provide new decimal point values. Using string interpolation update the previous task so that the sentence remains the same but will give the answer to 1d.p.
+val ageA: Double = 35.40
+val ageB: Double = 29.30
+println(f"$personA is ${ageA - ageB}%.1f years older than $personB")
+
+//Use string interpolation to avoid the new lines from this string. “\n\n\n\n\n\n\n\nsameline\n\n”
+println(raw"\n\n\n\n\n\n\n\nsameline\n\n")
 
