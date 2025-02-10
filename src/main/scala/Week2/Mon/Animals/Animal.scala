@@ -1,6 +1,5 @@
 package Week2.Mon.Animals
 
-abstract class Animal {
-  def animalClass: Boolean = true
-  def hasEyes: Boolean = true
+class Animal (val name: String, val age: Int) {
+  def feedAnimal(name: String) = s"You fed $name!"
 }
