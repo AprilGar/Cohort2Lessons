@@ -96,8 +96,10 @@ def calculateWithEitherReturn(operation: String): Either[String, (Double, Double
 def maxListNum (list: List[Double], f: (Double, Double) => Double): Double = {
   list.reduce(f)
 }
+//NOTE: .reduce will reduce the collection to a single value by applying the operation repeatedly. If empty, an exception will be thrown.
 
 def max(input1:Double, input2:Double): Double = input1 max input2
+// NOTE: the `max` method returns the maximum element from a collection. Works on many types as long as the order is defined.
 
 val listOfNumbers:List[Double] = List(1,5,3,233,4,9,8,7,6,66)
 
@@ -120,12 +122,13 @@ applyFunc(square, 5)
 //Q3
 // Define the Higher-Order Function
 def power(exponent: Int): Int => Int = {
-  (base: Int) => Math.pow(base, exponent).toInt // returning a function
+  (base: Int) => Math.pow(base, exponent).toInt // returning a anonymous function as I don't need to call it again.
 }
+//NOTE: will raise the base to the power of the exponent. Will always return a Double (convert to Int).
 
 // Define power function
 val square = power(2)
 
 // Use the power function to calculate the square
-square(6)
+square(6) //6 is the base, to the power of 2.
 
