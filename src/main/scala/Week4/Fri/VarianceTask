@@ -1,0 +1,58 @@
+## Variance
+
+Variance is a concept that is used to explain inheritance correlation of Types that have parameters or arguments within them.
+
+### Research:
+
+Start by having a general look into Variance in Scala and when it may be helpful. Then have a deep dive into:
+- Covariance (Syntax: `Set[+T]`)
+- Contravariance (Syntax: `Set[-T]`)
+- Invariance (Syntax: `Set[T]`)
+
+### MVP:
+
+Now you have had a research into variance, we are going to go back to something familiar and model some animals in a sanctuary. If you would like to use your existing sanctuary that is fine.
+
+1. Create an abstract `Animal` class with fields for their names and the food they eat. Create some animals that extend this class.
+
+2. Create a `val` called `Animal` and assign a more specific animal, like a `Dog`. Why does this compile?
+
+3. Imagine some animals are Solitary, like `Cats`. They don’t like spending time with other Animals. Model a generic `Solitary` class that is invariant in its type.
+
+4. Create a `Solitary Cat` val. Try to assign this val to a `Solitary Animal` val. Why doesn’t this compile?
+
+5. Now imagine some animals like to travel in Pairs, like `Swans`. Create a generic `Pair` class that is covariant in its type.
+
+6. Create a `val` of a `Pair` of `Swans` (`val swanPair: Pair[Swan]`). Try to assign this val to a `Pair` of `Animals`. Will this compile? Why or why not?
+
+7. Sometimes these animals need a person who can feed them. We’re not concerned what animals they can feed. Model a generic abstract `Feeder` class that is contravariant in its type and has a `feedAnimal` method (this can just return a simple print line).
+
+8. Create an `Animal Feeder` val that is a new `Feeder[Animal]`. Override the `feedAnimal` method, it should now return an interpolated string which includes the name of the animal fed and the food type within the print line. Now, try to assign this val to a `Dog Feeder`. Will this compile? Why or why not?
+
+9. Try to call `feedAnimal` from the `Dog Feeder` with a `Dog`. What do you expect to be printed?
+
+10. Try to call it with a `Cat`. Why doesn’t this compile?
+
+### Extension:
+
+Model a generic `Pack` of all sorts of animals, so this `Pack` should be covariant in its type. We’ll need:
+
+- An abstract `Pack` class with a method to `addToPack`:
+  ```scala
+  def addToPack(elem: A): NonEmptyPack[A] = NonEmptyPack(elem, this)
+  ```
+
+- A `NonEmptyPack` class that contains a `head` field of type `A` and `tail` field which points to the next `A` in the `Pack`
+
+- An `EmptyPack` object which is a `Pack` of nothing
+
+Why doesn’t `addToPack` compile? What can we do to fix this? (Hint: Look up lower type bounds.) We should now be able to create a `Pack` of all types of `Animals`.
+
+Sometimes the animals need a `Vet`.
+
+- An `Animal Vet` should be able to heal any `Animal`, therefore it should be contravariant in its type and have a method to `healAnimal`:
+  ```scala
+  def healAnimal(animalToRescue: A): A
+  ```
+
+Why doesn’t `healAnimal` compile? What can we do to fix this? (Hint: Look up upper type bounds.)
