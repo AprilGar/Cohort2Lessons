@@ -1,0 +1,85 @@
+## Refactor: Guess who?
+
+A skill you will quickly need to be comfortable with is refactoring your code when you find cleaner and easier ways to write it.
+
+Another skill is being able to refactor code you didn’t write. This is what we are going to do today!
+
+Since we last looked at the Guess Who mini project we have learnt:
+
+- More on enumeration.
+- More on for comprehensions.
+- Pattern matching.
+- Options.
+- Eithers.
+- Futures.
+- Recursion.
+- Higher order functions.
+
+So, your task today is to use any of these, or any additional research to refactor a different group's code, making it cleaner and more readable. I have written some points for where I would like each group to start. You only have one day, focus on what will make the biggest impact, you will struggle to complete it all!
+
+You need to clone the code onto your device using the SSH link and change the upstream. All code will stay on a refactor branch. It will not be merged anywhere else or edit the original teams work. See instructions on how to do this below (it is the same as the unit testing task!)
+Be ready to share your refactored code after stand-up tomorrow!
+
+---
+
+| **Original group:**     | Group 1 - Nimo, Tudor, Ash                                                                                                                                                                                                                                                                                    |
+|------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Refactor project:**   | Group 3                                                                                                                                                                                                                                                                                                       |
+| **GitHub link:**        | [Guess Who - Group 3](https://github.com/eloiseyaz/guessWho/tree/mvp)                                                                                                                                                                                                                                         |
+| **Branch to branch off:** | mvp                                                                                                                                                                                                                                                                                                           |
+| **Refactor tasks:**     | 1. Improve the test coverage. Think about how we can mock a ‘random’ result. <br> 2. Update the while loop to use a safer method. <br> 3. A `var` is used for `newFilteredList`. Is there a way to do this which will make it safer? <br> 4. Refactor long methods to be more concise using pattern matching. |
+
+---
+
+| **Original group:**     | Group 2 - Waris, Sandra, Dorothea                                                                                                                                                                                                                                                                                  |
+|------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Refactor project:**   | Group 1                                                                                                                                                                                                                                                                                                            |
+| **GitHub link:**        | [Guess Who - Group 1](https://github.com/nimo-mohamed/QuessWho_Team1/tree/document-code)                                                                                                                                                                                                                           |
+| **Branch to branch off:** | document-code                                                                                                                                                                                                                                                                                                           |
+| **Refactor tasks:**     | 1. The case class `Character` is not type-safe, lots of Booleans and Strings. Can we improve this? <br> 2. Update the while loop to use a safer method. <br> 3. Improve the test coverage. Think about how we can mock a ‘random’ result. <br> 4. Lots of `var` being used which makes it tricky to know what the game state is in. Can we improve this?|
+
+---
+
+| **Original group:**     | Group 3 - Farnoosh, Lan, Eloise                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Refactor project:**   | Group 2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| **GitHub link:**        | [Guess Who - Group 2](https://github.com/waris1hezb/GuesswhoGame/tree/MVP)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| **Branch to branch off:** | MVP                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| **Refactor tasks:**     | 1. Currently, the player can ask any question using `.contains` to identify a keyword. In theory, this is good because it allows for player creativity. However, leaving things up to interpretation can result in errors. As it stands, if they ask a negative question, for example, ‘do they not wear glasses?’, what will the result be? We’d expect the answer to filter all the people who don’t wear glasses, if this is true. Write a test and investigate this. Fix if needed. On this, how does the player know what they can ask about? <br> 2. Add in a hint for the user to access. <br> 3. Update the while loop to use a safer method. <br> 4. Update and improve the test coverage. |
+
+## Cloning the repository and making the Refactor branch
+
+Before the refactor can start, we need to set things up. We must clone the repository and change the repository that git points to. We do not push and change the original groups copy!
+
+1.	Start by copying the SSH link. Make sure SSH is underlined orange before you copy so you know you are getting the correct link.
+
+
+2.	In your terminal, direct to the place you want to save the repository and run `git clone <SSH LINK>`. Replace <SSH LINK> with the copied link from step 1.
+
+
+3.	You will now have a copy of the project which you can open in IntelliJ however the upstream will still point to the master copy. You can check this by running `git remote get-url origin`.
+
+
+4.	We need to change this. Start by making a new GitHub repository.
+
+
+5.	Direct yourself to the cloned repository in terminal, then run the following, substituting with your GitHub username and newly created repository name:
+
+    5.1.	‘git remote rename origin upstream’
+    (The old origin is now renamed to upstream)
+
+    5.2.	‘git remote add origin git@github.com:username/repo-name.git’
+    (A new origin is added, substitute in your github info.)
+
+
+6.	Check the remote is correct by running `git remote -v` (If this isn’t pointing to you, try step 5 again, if it still isn’t, seek help from a peer or your trainer!)
+
+
+7.	Now that the upstream points to you, you must make sure you use the keyword ‘origin’ when pushing. The command will be `git push origin <branch name>`.
+
+
+8.	Do a `git status` and `stash` anything that is currently untracked. Then direct yourself to the branch where the teams most up to date work is (find this in the table above) and make yourself a branch off this called `refactor`.
+
+
+9.	Keep all your changes on refactor, do not push to the original branch or main.
+
